@@ -116,7 +116,13 @@ void loop() {
   Serial.println("run...");
 
   // get and display the current temperature and humidity
-  tempAndHumidityReading();
+  humidReading();
+
+  // wait a second before doing it all again
+  delay(1000);
+
+  // get and display the current temperature and humidity
+  tempReading();
 
   // wait a second before doing it all again
   delay(1000);
@@ -124,7 +130,7 @@ void loop() {
 
 
 // and here is the code for the tempAndHumidityReading function
-void tempAndHumidityReading(){
+void humidReading(){
   display.clearDisplay();
   // display temperature
   display.setTextSize(1);
@@ -143,6 +149,12 @@ void tempAndHumidityReading(){
   display.setTextSize(2);
   display.print("C");
 
+  display.display();
+}
+// and here is the code for the tempAndHumidityReading function
+void tempReading(){
+  display.clearDisplay();
+  display.setCursor(0,0);
   // display humidity
   display.setTextSize(1);
   display.setCursor(0, 35);
@@ -152,5 +164,5 @@ void tempAndHumidityReading(){
   display.print(String(bme.readHumidity()));
   display.print(" %"); 
 
-  display.display();  
+  display.display();
 }

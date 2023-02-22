@@ -115,13 +115,10 @@ void loop() {
   // Output a message to the programmers computer so we know the code is running
   Serial.println("run...");
 
+  display.clearDisplay();
+
   // get and display the current temperature and humidity
   humidReading();
-
-  // wait a second before doing it all again
-  delay(1000);
-
-  // get and display the current temperature and humidity
   tempReading();
 
   // wait a second before doing it all again
@@ -131,7 +128,6 @@ void loop() {
 
 // and here is the code for the tempAndHumidityReading function
 void humidReading(){
-  display.clearDisplay();
   // display temperature
   display.setTextSize(1);
   // the x (horizontal) and y (vertical) location for the next
@@ -153,7 +149,6 @@ void humidReading(){
 }
 // and here is the code for the tempAndHumidityReading function
 void tempReading(){
-  display.clearDisplay();
   display.setCursor(0,0);
   // display humidity
   display.setTextSize(1);
